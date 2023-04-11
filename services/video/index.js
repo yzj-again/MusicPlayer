@@ -1,5 +1,5 @@
 import {requestInstance} from "../request/index"
-export function getTopMv(limit=20,offset=0){
+export function getTopMv(offset=0,limit=20){
 	return requestInstance.get({
 		url:"/top/mv",
 			data:{
