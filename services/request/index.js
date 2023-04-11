@@ -1,16 +1,3 @@
-// 封装成函数 
-export function request(options){
- return new Promise((resolve,reject)=>{
-  wx:wx.request({
-    ...options,
-    success:(res)=>{
-      resolve(res.data)
-    },
-    fail:(err)=>{reject(err)}
-  })
- })
-}
-// 封装成类 ->实例
 class Request{
   constructor(baseUrl){
     this.baseUrl=baseUrl
@@ -37,4 +24,4 @@ class Request{
     return this.requset({...options,method:"post"})
   }
 }
-export const requestInstance = new Request("http://codercba.com:1888/api")
+export const requestInstance = new Request("http://codercba.com:9002")
