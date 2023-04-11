@@ -1,5 +1,5 @@
 // pages/main-video/index.js
-import {getTopMv} from "../../services/video/index"
+import {getTopMv} from "../../services/videos/index"
 Page({
 	data:{
 		videoList:[],
@@ -38,5 +38,11 @@ Page({
 		await this.fetchTopMv()
 		// 停止下拉刷新
 		wx.stopPullDownRefresh()
+	},
+	onVideoItemTap(event){
+		const item = event.currentTarget.dataset.item
+		wx.navigateTo({
+		  url: `/pages/detail-video/index?id=${item.id}`,
+		})
 	}
 })
