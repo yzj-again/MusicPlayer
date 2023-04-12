@@ -20,6 +20,9 @@ Page({
 			this.setData({bannerHeight:res[0].height})
 		})
 	},
+	onRecommendMoreClick(){
+		console.log(1)
+	},
 	// 发送网络请求
 	onLoad(){
 		this.fetchMusicBanner()
