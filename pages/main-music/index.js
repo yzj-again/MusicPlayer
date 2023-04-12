@@ -1,66 +1,32 @@
 // pages/main-music/index.js
+import {getMusicBanner} from "../../services/music/index"
+import {querySelect} from "../../utils/query-select"
+import throttle from "../../utils/throttle"
+const querySelectThrottle = throttle(querySelect,100)
 Page({
-
-	/**
-	 * 页面的初始数据
-	 */
 	data: {
-
+		searchValue:"",
+		bannerLists:[],
+		bannerHeight:150
 	},
-
-	/**
-	 * 生命周期函数--监听页面加载
-	 */
-	onLoad(options) {
-
+	// 界面的事件监听方法
+	onSearchClick(){
+		wx.navigateTo({
+		  url: '/pages/detail-search/index'
+		})
 	},
-
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady() {
-
+	onBannerImageLoad(event){
+		querySelectThrottle(".banner-image").then(res=>{
+			this.setData({bannerHeight:res[0].height})
+		})
 	},
-
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
-	onShow() {
-
+	// 发送网络请求
+	onLoad(){
+		this.fetchMusicBanner()
 	},
-
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
-	onHide() {
-
-	},
-
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload() {
-
-	},
-
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh() {
-
-	},
-
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom() {
-
-	},
-
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage() {
-
+	// 网络请求的封装
+	async fetchMusicBanner(){
+		const res = await getMusicBanner()
+		this.setData({bannerLists:res.banners})
 	}
 })
