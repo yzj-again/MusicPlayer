@@ -1,0 +1,8 @@
+<!--pages/detail-song/index.wxml-->
+<view class="recommend">
+	<view class="recommend-list">
+		<block wx:for="{{recommendMusic}}" wx:key="id">
+			<recommend-song-item itemData="{{item}}"></recommend-song-item>
+		</block>
+	</view>
+</view>

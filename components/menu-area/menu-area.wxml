@@ -1,0 +1,11 @@
+<!--components/menu-area/menu-area.wxml-->
+<view class="munu">
+	<area-header title="{{title}}"></area-header>
+	<scroll-view class="list" scroll-x enable-flex style="width: {{screenWidth}}px">
+		<block wx:for="{{menuList}}" wx:key="id">
+		<view class="item">
+			<hot-song-item itemData="{{item}}"></hot-song-item>
+		</view>
+		</block>
+	</scroll-view>
+</view>

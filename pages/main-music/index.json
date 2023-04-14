@@ -1,7 +1,10 @@
 {
 	"usingComponents": {
 		"van-search": "@vant/weapp/search/index",
-		"area-header":"/components/area-header/area-header"
+		"area-header":"/components/area-header/area-header",
+		"recommend-song-item":"/components/recommend-song-item/recommend-song-item",
+		"hot-song-item":"/components/hot-song-item/hot-song-item",
+		"menu-area":"/components/menu-area/menu-area"
 	},
 	"navigationBarBackgroundColor": "#fafafa"
 	

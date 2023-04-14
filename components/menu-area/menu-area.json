@@ -1,0 +1,7 @@
+{
+	"component": true,
+	"usingComponents": {
+		"hot-song-item":"/components/hot-song-item/hot-song-item",
+		"area-header":"/components/area-header/area-header"
+	}
+}
